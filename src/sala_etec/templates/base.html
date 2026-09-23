@@ -11,7 +11,37 @@
       href="{{ url_for('static', filename='css/style.css') }}"
     />
   </head>
-
+  <script>
+    let formularioExclusao = null;
+  
+    function abrirConfirmacao(event) {
+      event.preventDefault();
+  
+      formularioExclusao = event.target;
+  
+      document
+        .getElementById("modal-confirmacao")
+        .classList.add("is-active");
+    }
+  
+    function fecharConfirmacao() {
+      document
+        .getElementById("modal-confirmacao")
+        .classList.remove("is-active");
+  
+      formularioExclusao = null;
+    }
+  
+    document
+      .getElementById("botao-confirmar")
+      .addEventListener("click", function () {
+  
+        if (formularioExclusao) {
+          formularioExclusao.submit();
+        }
+  
+      });
+  </script>
   <body>
     <!-- Navbar -->
     <nav class="navbar" role="navigation" aria-label="Navegação principal">
@@ -131,4 +161,5 @@
 
     </div>
   </body>
+
 </html>

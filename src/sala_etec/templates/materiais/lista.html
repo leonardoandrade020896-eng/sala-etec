@@ -144,12 +144,8 @@
               action="{{ url_for('materiais.excluir', material_id=material.id) }}"
               method="POST"
               class="card-footer-item"
-              onsubmit="
-                return confirm(
-                  'Tem certeza que deseja excluir este material?',
-                );
-              "
-            >
+              onsubmit="abrirConfirmacao(event)"
+              >
               <button class="button is-danger is-light" type="submit">
                 Excluir
               </button>
@@ -159,6 +155,45 @@
       </div>
 
       {% endfor %}
+      <div id="modal-confirmacao" class="modal">
+        <div class="modal-background"></div>
+      
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Confirmar exclusão</p>
+      
+            <button
+              class="delete"
+              aria-label="fechar"
+              onclick="fecharConfirmacao()"
+            ></button>
+          </header>
+      
+          <section class="modal-card-body">
+            Tem certeza que deseja excluir este material?
+            <br><br>
+            O material será marcado como inativo.
+          </section>
+      
+          <footer class="modal-card-foot">
+            <div class="buttons">
+              <button
+                class="button is-light"
+                onclick="fecharConfirmacao()"
+              >
+                Cancelar
+              </button>
+      
+              <button
+                id="botao-confirmar"
+                class="button is-danger"
+              >
+                Sim, excluir
+              </button>
+            </div>
+          </footer>
+        </div>
+      </div>
     </div>
 
     {% else %}
