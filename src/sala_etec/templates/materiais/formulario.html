@@ -61,6 +61,9 @@
                   name="titulo"
                   placeholder="Ex.: Introdução ao SQL"
                   value="{{ request.form.get('titulo', '') }}"
+                  minlength="5"
+                  maxlength="99"
+                  required
                 />
               </div>
             </div>
@@ -72,11 +75,17 @@
               <div class="control">
                 <textarea
                   class="textarea"
+                  id="desc"
                   name="desc"
                   placeholder="Descreva brevemente o material..."
-                >
-{{ request.form.get('desc', '') }}</textarea>
-              </div>
+                  minlength="10"
+                  maxlength="199"
+                  required
+                >{{ request.form.get('desc', '') }}</textarea>
+
+                <p class="help">
+                  <span id="contador-desc">0/199</span> caracteres
+                </p>
             </div>
 
             <!-- Disciplina -->
@@ -146,5 +155,20 @@
         </div>
       </div>
     </main>
+
+    <script>
+    const descricao = document.getElementById("desc");
+    const contador = document.getElementById("contador-desc");
+    const limite = 199;
+
+    function atualizarContador() {
+      contador.textContent = `${descricao.value.length}/${limite}`;
+    }
+
+    descricao.addEventListener("input", atualizarContador);
+
+    atualizarContador();
+    </script>
+
   </body>
 </html>

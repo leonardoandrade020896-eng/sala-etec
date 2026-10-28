@@ -1,16 +1,78 @@
+
 {% extends "base.html" %}
 
-{% block title %}
-  Início | Sala ETEC
-{% endblock %}
+{% block title %}Início | Sala ETEC{% endblock %}
 
 {% block content %}
-<section class="section">
-  <h1 class="title">Olá, {{ g.usuario.nome }}</h1>
+<section class="section pagina-inicial">
+  <div class="cabecalho-inicial">
+    <div>
+      <p class="texto-destaque">SUA ÁREA DE ESTUDOS</p>
 
-  <p class="subtitle">
-    Continue suas atividades.
-  </p>
+      <h1 class="title is-2">
+        Olá, {{ g.usuario.nome }}!
+      </h1>
+
+      <p class="subtitle is-5">
+        Continue suas atividades e mantenha seus estudos organizados.
+      </p>
+    </div>
+
+    <div class="icone-inicial" aria-hidden="true">
+      📚
+    </div>
+  </div>
+
+  <div class="mensagem-inicial box">
+    <div class="mensagem-inicial-icone" aria-hidden="true">
+      ✨
+    </div>
+
+    <div>
+      <h2 class="title is-4">Vamos continuar aprendendo?</h2>
+
+      <p class="has-text-grey">
+        Acesse suas disciplinas, consulte materiais de estudo
+        e acompanhe suas atividades em um só lugar.
+      </p>
+    </div>
+  </div>
+
+  <div class="titulo-acessos">
+    <h2 class="title is-4">Acesso rápido</h2>
+
+    <p class="has-text-grey">
+      Escolha por onde deseja começar.
+    </p>
+  </div>
+
+  <div class="colunas-acessos">
+    <a href="{{ url_for('main.disciplinas') }}" class="cartao-acesso">
+      <div class="icone-cartao-acesso">📘</div>
+      <h3 class="title is-5">Disciplinas</h3>
+      <p class="has-text-grey">
+        Consulte suas matérias de estudo.
+      </p>
+      <span class="texto-cartao-acesso">Ver disciplinas →</span>
+    </a>
+
+    <a href="{{ url_for('materiais.listar') }}" class="cartao-acesso">
+      <div class="icone-cartao-acesso">📂</div>
+      <h3 class="title is-5">Materiais</h3>
+      <p class="has-text-grey">
+        Encontre conteúdos para estudar.
+      </p>
+      <span class="texto-cartao-acesso">Ver materiais →</span>
+    </a>
+
+    <a href="{{ url_for('main.favoritos') }}" class="cartao-acesso">
+      <div class="icone-cartao-acesso">♡</div>
+      <h3 class="title is-5">Favoritos</h3>
+      <p class="has-text-grey">
+        Acesse seus conteúdos favoritos.
+      </p>
+      <span class="texto-cartao-acesso">Ver favoritos →</span>
+    </a>
+  </div>
 </section>
-
 {% endblock %}

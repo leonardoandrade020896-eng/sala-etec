@@ -42,7 +42,7 @@
               class="input"
               type="search"
               name="busca"
-              placeholder="Pesquisar por título ou disciplina..."
+              placeholder="Pesquisar por título, professor ou disciplina..."
               value="{{ busca }}"
             />
 
@@ -118,8 +118,9 @@
               </p>
 
               {% if material.desc %}
-              <p>{{ material.desc }}</p>
+                <p class="material-description">{{ material.desc }}</p>
               {% endif %}
+
             </div>
 
             <div class="is-flex is-justify-content-space-between is-align-items-center">

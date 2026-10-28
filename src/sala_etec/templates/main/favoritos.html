@@ -1,16 +1,52 @@
+
 {% extends "base.html" %}
 
-{% block title %}
-  Início | Sala ETEC
-{% endblock %}
+{% block title %}Favoritos | Sala ETEC{% endblock %}
 
 {% block content %}
-<section class="section">
-  <h1 class="title">Todos os seus favoritos</h1>
+<section class="section pagina-favoritos">
+  <div class="cabecalho-favoritos">
+    <div>
+      <p class="texto-destaque">SUA BIBLIOTECA</p>
+      <h1 class="title is-2">Meus favoritos</h1>
+      <p class="subtitle is-6">
+        Encontre rapidamente os materiais que você deseja consultar novamente.
+      </p>
+    </div>
 
-  <p class="subtitle">
-    favoritos
-  </p>
+    <div class="icone-favoritos" aria-hidden="true">
+      ♥
+    </div>
+  </div>
+
+  <div class="barra-favoritos">
+    <div>
+      <h2 class="title is-5">Materiais salvos</h2>
+      <p class="has-text-grey is-size-7">
+        Seus conteúdos favoritos ficam organizados aqui.
+      </p>
+    </div>
+
+    <span class="tag is-info is-light is-medium">
+      Favoritos
+    </span>
+  </div>
+
+  <div class="favoritos-vazio box">
+    <div class="icone-favoritos-vazio" aria-hidden="true">
+      ♡
+    </div>
+
+    <h3 class="title is-4">Sua coleção começa aqui</h3>
+
+    <p class="has-text-grey">
+      Quando você adicionar materiais aos favoritos, poderá encontrá-los
+      nesta página com facilidade.
+    </p>
+
+    <a href="{{ url_for('materiais.listar') }}" class="button is-link mt-5">
+      Explorar materiais
+    </a>
+  </div>
 </section>
-
 {% endblock %}

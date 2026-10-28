@@ -197,6 +197,13 @@ a:hover {
    FORMULÁRIOS
    ========================= */
 
+
+.material-description {
+    overflow-wrap: anywhere;
+    min-width: 0;
+    max-width: 100%;
+}
+
 .input,
 .textarea,
 .select select {
@@ -302,4 +309,489 @@ a:hover {
 
 .material-card .card-content {
   flex: 1;
+}
+
+
+
+/* =========================
+   PÁGINA DE FAVORITOS
+   ========================= */
+
+.pagina-favoritos {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cabecalho-favoritos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.texto-destaque {
+    margin-bottom: 0.6rem;
+    color: var(--bulma-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.cabecalho-favoritos .title {
+    margin-bottom: 0.75rem;
+    color: var(--bulma-text-strong);
+}
+
+.cabecalho-favoritos .subtitle {
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+.icone-favoritos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+    background: var(--sala-menu-hover-background);
+    color: var(--bulma-primary);
+    font-size: 2.5rem;
+}
+
+.barra-favoritos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.barra-favoritos .title {
+    margin-bottom: 0.4rem;
+}
+
+.favoritos-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 330px;
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px dashed var(--bulma-border);
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+.icone-favoritos-vazio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    margin-bottom: 1.25rem;
+    border-radius: 50%;
+    background: var(--bulma-scheme-main-ter);
+    color: var(--bulma-primary);
+    font-size: 2.5rem;
+}
+
+.favoritos-vazio .title {
+    margin-bottom: 0.75rem;
+}
+
+.favoritos-vazio p {
+    max-width: 440px;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .pagina-favoritos {
+        padding: 1.25rem 1rem;
+    }
+
+    .cabecalho-favoritos {
+        align-items: flex-start;
+    }
+
+    .icone-favoritos {
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
+        font-size: 1.8rem;
+    }
+
+    .cabecalho-favoritos .title {
+        font-size: 1.75rem;
+    }
+
+    .barra-favoritos {
+        align-items: flex-start;
+    }
+
+    .favoritos-vazio {
+        min-height: 280px;
+        padding: 1.5rem;
+    }
+}
+
+
+/* =========================
+   PÁGINA INICIAL
+   ========================= */
+
+.pagina-inicial {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cabecalho-inicial {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.cabecalho-inicial .title {
+    margin-bottom: 0.75rem;
+    color: var(--bulma-text-strong);
+}
+
+.cabecalho-inicial .subtitle {
+    max-width: 650px;
+    line-height: 1.7;
+}
+
+.icone-inicial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+    background: var(--sala-menu-hover-background);
+    font-size: 2.5rem;
+}
+
+.mensagem-inicial {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    padding: 1.75rem;
+    border: 1px solid var(--bulma-border-weak);
+    border-radius: 16px;
+    box-shadow: var(--bulma-shadow);
+}
+
+.mensagem-inicial-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: var(--bulma-scheme-main-ter);
+    font-size: 1.75rem;
+}
+
+.mensagem-inicial .title {
+    margin-bottom: 0.6rem;
+}
+
+.mensagem-inicial p {
+    line-height: 1.7;
+}
+
+.titulo-acessos {
+    margin-bottom: 1.25rem;
+}
+
+.titulo-acessos .title {
+    margin-bottom: 0.5rem;
+}
+
+.colunas-acessos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.cartao-acesso {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 220px;
+    padding: 1.5rem;
+    border: 1px solid var(--bulma-border-weak);
+    border-radius: 16px;
+    background: var(--bulma-scheme-main);
+    color: var(--bulma-text);
+    box-shadow: var(--bulma-shadow);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.cartao-acesso:hover {
+    color: var(--bulma-text);
+    border-color: var(--bulma-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(23, 32, 51, 0.08);
+}
+
+.icone-cartao-acesso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.25rem;
+    border-radius: 14px;
+    background: var(--sala-menu-hover-background);
+    font-size: 1.5rem;
+}
+
+.cartao-acesso .title {
+    margin-bottom: 0.5rem;
+    color: var(--bulma-text-strong);
+}
+
+.cartao-acesso p {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.texto-cartao-acesso {
+    margin-top: auto;
+    color: var(--bulma-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .pagina-inicial {
+        padding: 1.25rem 1rem;
+    }
+
+    .cabecalho-inicial {
+        align-items: flex-start;
+    }
+
+    .cabecalho-inicial .title {
+        font-size: 1.75rem;
+        overflow-wrap: anywhere;
+    }
+
+    .icone-inicial {
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
+        font-size: 1.8rem;
+    }
+
+    .mensagem-inicial {
+        align-items: flex-start;
+        padding: 1.25rem;
+    }
+
+    .mensagem-inicial-icone {
+        width: 42px;
+        height: 42px;
+        font-size: 1.4rem;
+    }
+
+    .colunas-acessos {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao-acesso {
+        min-height: 190px;
+    }
+}
+
+
+
+/* =========================
+   PÁGINA DE DISCIPLINAS
+   ========================= */
+
+.pagina-disciplinas {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cabecalho-disciplinas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.cabecalho-disciplinas .title {
+    margin-bottom: 0.75rem;
+    color: var(--bulma-text-strong);
+}
+
+.cabecalho-disciplinas .subtitle {
+    max-width: 650px;
+    line-height: 1.7;
+}
+
+.icone-disciplinas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+    background: var(--sala-menu-hover-background);
+    font-size: 2.5rem;
+}
+
+.introducao-disciplinas {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    padding: 1.75rem;
+    border: 1px solid var(--bulma-border-weak);
+    border-radius: 16px;
+    box-shadow: var(--bulma-shadow);
+}
+
+.icone-introducao-disciplinas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: var(--bulma-scheme-main-ter);
+    font-size: 1.75rem;
+}
+
+.introducao-disciplinas .title {
+    margin-bottom: 0.6rem;
+}
+
+.introducao-disciplinas p {
+    line-height: 1.7;
+}
+
+.titulo-lista-disciplinas {
+    margin-bottom: 1.25rem;
+}
+
+.titulo-lista-disciplinas .title {
+    margin-bottom: 0.5rem;
+}
+
+.grade-disciplinas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.cartao-disciplina {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 220px;
+    padding: 1.5rem;
+    border: 1px solid var(--bulma-border-weak);
+    border-radius: 16px;
+    background: var(--bulma-scheme-main);
+    color: var(--bulma-text);
+    box-shadow: var(--bulma-shadow);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.cartao-disciplina:hover {
+    color: var(--bulma-text);
+    border-color: var(--bulma-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(23, 32, 51, 0.08);
+}
+
+.icone-cartao-disciplina {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.25rem;
+    border-radius: 14px;
+    background: var(--sala-menu-hover-background);
+    font-size: 1.5rem;
+}
+
+.cartao-disciplina .title {
+    margin-bottom: 0.5rem;
+    color: var(--bulma-text-strong);
+}
+
+.cartao-disciplina p {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.texto-cartao-disciplina {
+    margin-top: auto;
+    color: var(--bulma-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .pagina-disciplinas {
+        padding: 1.25rem 1rem;
+    }
+
+    .cabecalho-disciplinas {
+        align-items: flex-start;
+    }
+
+    .cabecalho-disciplinas .title {
+        font-size: 1.75rem;
+    }
+
+    .icone-disciplinas {
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
+        font-size: 1.8rem;
+    }
+
+    .introducao-disciplinas {
+        align-items: flex-start;
+        padding: 1.25rem;
+    }
+
+    .icone-introducao-disciplinas {
+        width: 42px;
+        height: 42px;
+        font-size: 1.4rem;
+    }
+
+    .grade-disciplinas {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao-disciplina {
+        min-height: 190px;
+    }
 }

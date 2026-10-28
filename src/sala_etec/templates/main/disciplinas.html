@@ -1,16 +1,97 @@
+
 {% extends "base.html" %}
 
-{% block title %}
-  Início | Sala ETEC
-{% endblock %}
+{% block title %}Disciplinas | Sala ETEC{% endblock %}
 
 {% block content %}
-<section class="section">
-  <h1 class="title">Todas as disciplinas</h1>
+<section class="section pagina-disciplinas">
+  <div class="cabecalho-disciplinas">
+    <div>
+      <p class="texto-destaque">ORGANIZE SEUS ESTUDOS</p>
 
-  <p class="subtitle">
-    disciplinas
-  </p>
+      <h1 class="title is-2">Todas as disciplinas</h1>
+
+      <p class="subtitle is-5">
+        Acesse suas matérias e encontre os conteúdos para continuar aprendendo.
+      </p>
+    </div>
+
+    <div class="icone-disciplinas" aria-hidden="true">
+      📚
+    </div>
+  </div>
+
+  <div class="introducao-disciplinas box">
+    <div class="icone-introducao-disciplinas" aria-hidden="true">
+      🎓
+    </div>
+
+    <div>
+      <h2 class="title is-4">Seu espaço de aprendizagem</h2>
+
+      <p class="has-text-grey">
+        Explore suas disciplinas e encontre os materiais de estudo em um só lugar.
+      </p>
+    </div>
+  </div>
+
+  <div class="titulo-lista-disciplinas">
+    <h2 class="title is-4">Suas matérias</h2>
+
+    <p class="has-text-grey">
+      Selecione uma disciplina para consultar seus conteúdos.
+    </p>
+  </div>
+
+  <div class="grade-disciplinas">
+    <a href="{{ url_for('materiais.listar') }}" class="cartao-disciplina">
+      <div class="icone-cartao-disciplina">🗄️</div>
+      <h3 class="title is-5">Banco de Dados 2</h3>
+      <p class="has-text-grey">Consulte os conteúdos desta disciplina.</p>
+      <span class="texto-cartao-disciplina">Consultar conteúdos →</span>
+    </a>
+
+    <a href="{{ url_for('materiais.listar') }}" class="cartao-disciplina">
+      <div class="icone-cartao-disciplina">💻</div>
+      <h3 class="title is-5">Programação Web 2</h3>
+      <p class="has-text-grey">Consulte os conteúdos desta disciplina.</p>
+      <span class="texto-cartao-disciplina">Consultar conteúdos →</span>
+    </a>
+
+    <a href="{{ url_for('materiais.listar') }}" class="cartao-disciplina">
+      <div class="icone-cartao-disciplina">📐</div>
+      <h3 class="title is-5">Análise e Projeto de Sistema</h3>
+      <p class="has-text-grey">Consulte os conteúdos desta disciplina.</p>
+      <span class="texto-cartao-disciplina">Consultar conteúdos →</span>
+    </a>
+
+    <a href="{{ url_for('materiais.listar') }}" class="cartao-disciplina">
+      <div class="icone-cartao-disciplina">⚙️</div>
+      <h3 class="title is-5">Desenvolvimento de Sistema 1</h3>
+      <p class="has-text-grey">Consulte os conteúdos desta disciplina.</p>
+      <span class="texto-cartao-disciplina">Consultar conteúdos →</span>
+    </a>
+
+    <a href="{{ url_for('materiais.listar') }}" class="cartao-disciplina">
+      <div class="icone-cartao-disciplina">📋</div>
+      <h3 class="title is-5">PTCC</h3>
+      <p class="has-text-grey">Consulte os conteúdos desta disciplina.</p>
+      <span class="texto-cartao-disciplina">Consultar conteúdos →</span>
+    </a>
+
+    <a href="{{ url_for('materiais.listar') }}" class="cartao-disciplina">
+      <div class="icone-cartao-disciplina">📱</div>
+      <h3 class="title is-5">Programação de Aplicativos Mobile 1</h3>
+      <p class="has-text-grey">Consulte os conteúdos desta disciplina.</p>
+      <span class="texto-cartao-disciplina">Consultar conteúdos →</span>
+    </a>
+
+    <a href="{{ url_for('materiais.listar') }}" class="cartao-disciplina">
+      <div class="icone-cartao-disciplina">🚀</div>
+      <h3 class="title is-5">Projeto de Desenvolvimento de Sistemas</h3>
+      <p class="has-text-grey">Consulte os conteúdos desta disciplina.</p>
+      <span class="texto-cartao-disciplina">Consultar conteúdos →</span>
+    </a>
+  </div>
 </section>
-
 {% endblock %}
