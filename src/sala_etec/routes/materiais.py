@@ -1,7 +1,15 @@
 # sala_etec/routes/materiais.py
 import os
 from werkzeug.utils import secure_filename
-from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
+from flask import (
+    Blueprint,
+    current_app,
+    flash,
+    redirect,
+    render_template,
+    request,
+    url_for,
+)
 
 from sala_etec.database import db
 from sala_etec.decorators import login_required
@@ -12,11 +20,14 @@ materiais_bp = Blueprint("materiais", __name__, url_prefix="/materiais")
 
 
 # definir as extensões que permitimos receber
-EXTENSOES_PERMITIDAS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
+EXTENSOES_PERMITIDAS = {"png", "jpg", "jpeg", "gif", "webp"}
+
 
 def arquivo_permitido(filename):
     """Verifica se a extensão do arquivo é permitida."""
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in EXTENSOES_PERMITIDAS
+    return (
+        "." in filename and filename.rsplit(".", 1)[1].lower() in EXTENSOES_PERMITIDAS
+    )
 
 
 @materiais_bp.route("/")
@@ -82,7 +93,6 @@ def adicionar():
         flash("Todos os campos são obrigatórios", "danger")
         return redirect(url_for("materiais.adicionar"))
 
-
     disciplina = db.session.get(Disciplina, disciplina_id)
     professor = db.session.get(Usuario, professor_id)
 
@@ -93,7 +103,6 @@ def adicionar():
     if not professor or professor.tipo != "PROFESSOR":
         flash("Professor inválido", "danger")
         return redirect(url_for("materiais.adicionar"))
-
 
     if imagefile and imagefile.filename:
         if not arquivo_permitido(imagefile.filename):
@@ -174,3 +183,70 @@ def excluir(material_id):
     flash("Material excluído com sucesso.", "success")
 
     return redirect(url_for("materiais.listar"))
+
+
+# ### Rota de exclusão de materiais — materiais.py
+
+# python
+# # Define a rota responsável por excluir um material.
+# # O método POST é utilizado para realizar essa ação.
+# @materiais_bp.route("/<int:material_id>/excluir", methods=["POST"])
+# @login_required
+# def excluir(material_id):
+
+#     # Busca o material no banco de dados usando seu ID.
+#     material = db.session.get(Material, material_id)
+
+#     # Verifica se o material existe. Caso contrário, retorna erro 404.
+#     if not material:
+#         return "Material não encontrado", 404
+
+#     # Guarda o nome da imagem antes de excluir o registro.
+#     nome_imagem = material.imagem
+
+#     # Tenta excluir o material do banco de dados e confirmar a operação.
+#     try:
+#         db.session.delete(material)
+#         db.session.commit()
+
+#     # Se ocorrer algum erro, cancela as alterações no banco.
+#     except Exception:
+#         db.session.rollback()
+#         raise
+
+#     # Verifica se existe uma imagem e se ela não é a imagem padrão.
+#     if nome_imagem and nome_imagem != "padrao.png":
+
+#         # Monta o caminho onde a imagem está armazenada.
+#         caminho_imagem = os.path.join(
+#             current_app.config["UPLOAD_FOLDER"],
+#             nome_imagem,
+#         )
+
+#         # Verifica se o arquivo da imagem realmente existe.
+#         if os.path.isfile(caminho_imagem):
+
+#             # Tenta remover a imagem da pasta de arquivos.
+#             try:
+#                 os.remove(caminho_imagem)
+
+#             # Caso ocorra um erro, registra a ocorrência no sistema.
+#             except OSError:
+#                 current_app.logger.exception(
+#                     "Não foi possível excluir a imagem %s",
+#                     nome_imagem,
+#                 )
+
+#                 # Informa que o material foi excluído,
+#                 # mas que não foi possível remover sua imagem.
+#                 flash(
+#                     "Material excluído, mas não foi possível remover sua imagem.",
+#                     "warning",
+#                 )
+#                 return redirect(url_for("materiais.listar"))
+
+#     # Exibe uma mensagem confirmando que a exclusão foi realizada.
+#     flash("Material excluído com sucesso.", "success")
+
+#     # Retorna o usuário para a página que lista os materiais.
+#     return redirect(url_for("materiais.listar"))
